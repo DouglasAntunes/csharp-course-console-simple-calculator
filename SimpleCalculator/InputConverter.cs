@@ -6,11 +6,8 @@ namespace SimpleCalculator
     {
         public double ConvertInputToNumeric(string input)
         {
-            if (!double.TryParse(input, out double convertedNumber))
-            {
-                throw new ArgumentException("Expected a numeric value.");
-            }
-            return convertedNumber;
+            return double.TryParse(input, out double convertedNumber) 
+                ? convertedNumber : throw new ArgumentException("Expected a numeric value.");
         }
     }
 }
